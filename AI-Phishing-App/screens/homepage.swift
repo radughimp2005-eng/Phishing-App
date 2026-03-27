@@ -175,6 +175,7 @@ struct HomePage: View {
         .frame(maxHeight: .infinity, alignment: .top)
         SafetyTipsView()
             .padding(.top, -30)
+        Text("hello world")
     }
 }
     
