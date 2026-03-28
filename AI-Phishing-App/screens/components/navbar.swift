@@ -12,7 +12,7 @@ struct NavBarView: View {
         HStack (spacing: 40) {
             VStack (spacing: 4) {
                 Image(systemName: "house.fill")
-                    .font(.system(size: 40))
+                    .font(.system(size: 30))
                     .foregroundColor(.cyan)
                 Text("Home")
                     .foregroundColor(.cyan)
@@ -23,7 +23,7 @@ struct NavBarView: View {
                 label: {
                     VStack (spacing: 7) {
                         Image(systemName: "qrcode.viewfinder")
-                            .font(.system(size: 40))
+                            .font(.system(size: 30))
                             .foregroundColor(.black)
                         Text("Scan")
                             .foregroundColor(.black)
@@ -33,15 +33,14 @@ struct NavBarView: View {
             
             VStack (spacing: 3) {
                 Image(systemName: "clock.arrow.trianglehead.counterclockwise.rotate.90")
-                    .font(.system(size: 40))
+                    .font(.system(size: 30))
                 Text("History")
             }
             
             VStack (spacing: -1) {
                 Image("settings")
                     .resizable()
-                    .frame(width: 50, height: 50)
-                    .font(.system(size: 40))
+                    .frame(width: 40, height: 40)
                     .foregroundColor(.cyan)
                 Text("Settings")
             }

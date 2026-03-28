@@ -30,6 +30,7 @@ struct ScanURLView: View {
 
             Button(action: {
                 print("Scan URL tapped")
+                print( $urlText)
             }) {
                 Label("Scan URL", systemImage: "magnifyingglass")
                     .font(.headline)
