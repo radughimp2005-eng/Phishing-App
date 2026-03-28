@@ -35,71 +35,82 @@ struct HomePage: View {
                     .frame(maxWidth: .infinity, alignment: .leading) // aligns text to leading
                     .padding(.leading, 20) // only left padding
                 HStack (spacing:20) {
-                    VStack (spacing: 15) {
-                        RoundedRectangle (cornerRadius: 10)
-                            .fill(Color.lightBlue)
-                            .frame(width: 70, height: 53)
-                            .overlay(
-                                Image("scan URL")
-                                    .resizable()
-                                    .frame(width: 44, height: 44)
-                                    .padding(12)
-                            )
-                        
-                        Text("Scan URL")
-                            .fontWeight(.semibold)
-                            .font(.system(size: 12))
-                            .foregroundColor(.white)
-                    }
-                    .padding(18)
-                    .background(Color.darkBlue)
-                    .cornerRadius(10)
-                    .frame(width: 106, height: 106)
+                        NavigationLink(
+                            destination: ScanView(),
+                            label: {
+                                VStack (spacing: 15) {
+                                    RoundedRectangle (cornerRadius: 10)
+                                        .fill(Color.lightBlue)
+                                        .frame(width: 70, height: 53)
+                                        .overlay(
+                                            Image("scan URL")
+                                                .resizable()
+                                                .frame(width: 44, height: 44)
+                                                .padding(12)
+                                        )
+                                    
+                                    Text("Scan URL")
+                                        .fontWeight(.semibold)
+                                        .font(.system(size: 12))
+                                        .foregroundColor(.white)
+                                }
+                                .padding(18)
+                                .background(Color.darkBlue)
+                                .cornerRadius(10)
+                                .frame(width: 106, height: 106)
+                            }
+                        )
+                    NavigationLink(
+                        destination: ScanView(),
+                        label: {
+                            VStack (spacing: 15) {
+                                RoundedRectangle (cornerRadius: 10)
+                                    .fill(Color.lightBlue)
+                                    .frame(width: 70, height: 53)
+                                    .overlay(
+                                        Image("scan QR")
+                                            .resizable()
+                                            .frame(width: 44, height: 44)
+                                            .padding(12)
+                                    )
+                                
+                                Text("Scan QR")
+                                    .fontWeight(.semibold)
+                                    .font(.system(size: 12))
+                                    .foregroundColor(.white)
+                            }
+                            .padding(18)
+                            .background(Color.darkBlue)
+                            .cornerRadius(10)
+                            .frame(width: 106, height: 106)
+                        }
+                    )
                     
-                    
-                    
-                    VStack (spacing: 15) {
-                        RoundedRectangle (cornerRadius: 10)
-                            .fill(Color.lightBlue)
-                            .frame(width: 70, height: 53)
-                            .overlay(
-                                Image("scan QR")
-                                    .resizable()
-                                    .frame(width: 44, height: 44)
-                                    .padding(12)
-                            )
-                        
-                        Text("Scan QR")
-                            .fontWeight(.semibold)
-                            .font(.system(size: 12))
-                            .foregroundColor(.white)
-                    }
-                    .padding(18)
-                    .background(Color.darkBlue)
-                    .cornerRadius(10)
-                    .frame(width: 106, height: 106)
-                    
-                    
-                    VStack (spacing: 15) {
-                        RoundedRectangle (cornerRadius: 10)
-                            .fill(Color.lightBlue)
-                            .frame(width: 70, height: 53)
-                            .overlay(
-                                Image("scan image")
-                                    .resizable()
-                                    .frame(width: 44, height: 44)
-                                    .padding(12)
-                            )
-                        
-                        Text("Scan image")
-                            .fontWeight(.semibold)
-                            .font(.system(size: 12))
-                            .foregroundColor(.white)
-                    }
-                    .padding(18)
-                    .background(Color.darkBlue)
-                    .cornerRadius(10)
-                    .frame(width: 110, height: 106)
+                    NavigationLink(
+                        destination: ScanView(),
+                        label: {
+                            VStack (spacing: 15) {
+                                RoundedRectangle (cornerRadius: 10)
+                                    .fill(Color.lightBlue)
+                                    .frame(width: 70, height: 53)
+                                    .overlay(
+                                        Image("scan image")
+                                            .resizable()
+                                            .frame(width: 44, height: 44)
+                                            .padding(12)
+                                    )
+                                
+                                Text("Scan image")
+                                    .fontWeight(.semibold)
+                                    .font(.system(size: 12))
+                                    .foregroundColor(.white)
+                            }
+                            .padding(18)
+                            .background(Color.darkBlue)
+                            .cornerRadius(10)
+                            .frame(width: 110, height: 106)
+                        }
+                    )
                 }
             }
         }
@@ -175,7 +186,6 @@ struct HomePage: View {
         .frame(maxHeight: .infinity, alignment: .top)
         SafetyTipsView()
             .padding(.top, -30)
-        Text("hello world")
     }
 }
     
