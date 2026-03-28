@@ -12,3 +12,7 @@ struct ScanView: View {
         Text("Hello World")
     }
 }
+
+#Preview {
+    ScanView()
+}

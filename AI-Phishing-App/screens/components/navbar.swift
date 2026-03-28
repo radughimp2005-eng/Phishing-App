@@ -18,16 +18,23 @@ struct NavBarView: View {
                     .foregroundColor(.cyan)
             }
             
-            VStack (spacing: 7) {
-                Image(systemName: "qrcode.viewfinder")
-                    .font(.system(size: 40))
-                Text("Home")
-            }
+            NavigationLink(
+                destination: ScanView(),
+                label: {
+                    VStack (spacing: 7) {
+                        Image(systemName: "qrcode.viewfinder")
+                            .font(.system(size: 40))
+                            .foregroundColor(.black)
+                        Text("Scan")
+                            .foregroundColor(.black)
+                    }
+                }
+            )
             
             VStack (spacing: 3) {
                 Image(systemName: "clock.arrow.trianglehead.counterclockwise.rotate.90")
                     .font(.system(size: 40))
-                Text("Home")
+                Text("History")
             }
             
             VStack (spacing: -1) {
@@ -36,7 +43,7 @@ struct NavBarView: View {
                     .frame(width: 50, height: 50)
                     .font(.system(size: 40))
                     .foregroundColor(.cyan)
-                Text("Home")
+                Text("Settings")
             }
         }
     }
