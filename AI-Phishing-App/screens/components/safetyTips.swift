@@ -89,7 +89,7 @@ struct SafetyTipsView: View {
             .clipped()
             .animation(.easeInOut(duration: 0.3), value: currentIndex)
         }
-        .padding(.bottom, 55)
+        .padding(.bottom, 15)
     }
     
     @ViewBuilder

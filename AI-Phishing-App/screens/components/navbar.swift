@@ -7,4 +7,37 @@
 
 import SwiftUI
 
-
+struct NavBarView: View {
+    var body: some View {
+        HStack (spacing: 40) {
+            VStack (spacing: 4) {
+                Image(systemName: "house.fill")
+                    .font(.system(size: 40))
+                    .foregroundColor(.cyan)
+                Text("Home")
+                    .foregroundColor(.cyan)
+            }
+            
+            VStack (spacing: 7) {
+                Image(systemName: "qrcode.viewfinder")
+                    .font(.system(size: 40))
+                Text("Home")
+            }
+            
+            VStack (spacing: 3) {
+                Image(systemName: "clock.arrow.trianglehead.counterclockwise.rotate.90")
+                    .font(.system(size: 40))
+                Text("Home")
+            }
+            
+            VStack (spacing: -1) {
+                Image("settings")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .font(.system(size: 40))
+                    .foregroundColor(.cyan)
+                Text("Home")
+            }
+        }
+    }
+}
