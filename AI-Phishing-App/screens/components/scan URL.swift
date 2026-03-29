@@ -13,7 +13,7 @@ struct ScanURLView: View {
     var body: some View {
         VStack(spacing: 24) {
             Image(systemName: "link")
-                .font(.system(size: 60))
+                .font(.system(size: 90))
                 .foregroundColor(.cyan)
 
             Text("Enter an URL to scan")
@@ -33,8 +33,10 @@ struct ScanURLView: View {
                 print( $urlText)
             }) {
                 Label("Scan URL", systemImage: "magnifyingglass")
+                    .fontWeight(.bold)
+                    .font(.system(size: 20))
                     .font(.headline)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color.white)
                     .frame(maxWidth: .infinity)
                     .padding()
                     .background(Color.blue)
@@ -46,10 +48,24 @@ struct ScanURLView: View {
                 Text("Tips")
                     .font(.title2)
                     .fontWeight(.bold)
-
-                Text("Copy a suspicious link and paste it here")
-                Text("Received a sketchy text? Scan the link to check")
-                Text("Don’t click email links - scan first")
+                
+                HStack () {
+                    Image(systemName: "document.on.document")
+                        .fontWeight(.bold)
+                    Text("Copy a suspicious link and paste it here")
+                }
+                
+                HStack () {
+                    Image(systemName: "message")
+                        .fontWeight(.bold)
+                    Text("Received a sketchy text? Scan the link to check")
+                }
+                
+                HStack () {
+                    Image(systemName: "envelope")
+                        .fontWeight(.bold)
+                    Text("Don’t click email links - scan first")
+                }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()

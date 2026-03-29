@@ -20,6 +20,7 @@ struct ScanView: View {
 
                 ScanHeaderView(selectedTab: $selectedTab)
                     .padding(.horizontal)
+                    .font(.system(size: 21))
 
                 Group {
                     switch selectedTab {

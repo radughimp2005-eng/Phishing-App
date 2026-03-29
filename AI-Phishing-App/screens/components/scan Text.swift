@@ -12,8 +12,8 @@ struct ScanTextView: View {
 
     var body: some View {
         VStack(spacing: 24) {
-            Image(systemName: "message")
-                .font(.system(size: 60))
+            Image(systemName: "text.bubble")
+                .font(.system(size: 90))
                 .foregroundColor(.cyan)
 
             Text("Paste Suspicious Text")
@@ -46,6 +46,8 @@ struct ScanTextView: View {
                 print("Scan Text tapped")
             }) {
                 Label("Scan Text", systemImage: "magnifyingglass")
+                    .fontWeight(.bold)
+                    .font(.system(size: 20))
                     .font(.headline)
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)

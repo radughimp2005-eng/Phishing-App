@@ -100,6 +100,8 @@ struct ScanImageView: View {
                 print("Scan Image tapped")
             }) {
                 Label("Scan Image", systemImage: "magnifyingglass")
+                    .fontWeight(.bold)
+                    .font(.system(size: 20))
                     .font(.headline)
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
@@ -109,15 +111,74 @@ struct ScanImageView: View {
             }
             .buttonStyle(.plain)
 
-            VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .leading, spacing: 21) {
                 Text("What we analyze")
-                    .font(.title2)
-                    .fontWeight(.bold)
+                    .font(.system(size: 23))
+                    .fontWeight(.medium)
 
-                Text("Embedded URLs")
-                Text("Scam patterns")
-                Text("Impersonation")
-                Text("Financial Requests")
+                HStack () {
+                    Image(systemName: "link")
+                        .font(.system(size: 25))
+                        .fontWeight(.medium)
+                    VStack () {
+                        Text("Embedded URLs")
+                            .font(.system(size: 20))
+                            .fontWeight(.medium)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+
+                        Text("Links hidden in the message")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .fontWeight(.light)
+                    }
+                }
+                
+                HStack () {
+                    Image(systemName: "exclamationmark.triangle")
+                        .font(.system(size: 25))
+                        .fontWeight(.medium)
+                    VStack () {
+                        Text("Scam patterns")
+                            .font(.system(size: 20))
+                            .fontWeight(.medium)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+
+                        Text("Urgency, threats, prize claims")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .fontWeight(.light)
+                    }
+                }
+                
+                HStack () {
+                    Image(systemName: "building.2")
+                        .font(.system(size: 25))
+                        .fontWeight(.medium)
+                    VStack () {
+                        Text("Impersonation")
+                            .font(.system(size: 20))
+                            .fontWeight(.medium)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+
+                        Text("Fake bank or company messages")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .fontWeight(.light)
+                    }
+                }
+                
+                HStack () {
+                    Image(systemName: "dollarsign.ring")
+                        .font(.system(size: 25))
+                        .fontWeight(.medium)
+                    VStack () {
+                        Text("Financial Requests")
+                            .font(.system(size: 20))
+                            .fontWeight(.medium)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+
+                        Text("Requests for payment or gift cards")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .fontWeight(.light)
+                    }
+                }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
