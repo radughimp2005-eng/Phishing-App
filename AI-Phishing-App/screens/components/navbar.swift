@@ -10,13 +10,18 @@ import SwiftUI
 struct NavBarView: View {
     var body: some View {
         HStack (spacing: 40) {
-            VStack (spacing: 4) {
-                Image(systemName: "house.fill")
-                    .font(.system(size: 30))
-                    .foregroundColor(.cyan)
-                Text("Home")
-                    .foregroundColor(.cyan)
-            }
+            NavigationLink(
+                destination: HomePage(),
+                label: {
+                    VStack (spacing: 4) {
+                        Image(systemName: "house.fill")
+                            .font(.system(size: 30))
+                            .foregroundColor(.cyan)
+                        Text("Home")
+                            .foregroundColor(.cyan)
+                    }
+                }
+            )
             
             NavigationLink(
                 destination: ScanView(),

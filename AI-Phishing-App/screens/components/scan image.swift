@@ -6,13 +6,18 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct ScanImageView: View {
+    
+    @State private var selectedItem: PhotosPickerItem?
+    @State private var selectedImage: Image?
+    
     var body: some View {
         VStack(spacing: 24) {
             Image(systemName: "photo")
-                .font(.system(size: 60))
-                .foregroundColor(.cyan)
+                .font(.system(size: 90))
+                .foregroundColor(Color.cyan)
 
             Text("Scan an image")
                 .font(.title3)
@@ -21,25 +26,51 @@ struct ScanImageView: View {
                 .multilineTextAlignment(.center)
                 .foregroundColor(.gray)
 
-            VStack(spacing: 16) {
-                Image(systemName: "plus.circle.fill")
-                    .font(.system(size: 60))
-                    .foregroundColor(.darkBlue)
+            PhotosPicker(
+                selection: $selectedItem,
+                matching: .images,
+                photoLibrary: .shared()
+            ) {
+                VStack(spacing: 16) {
+                    if let selectedImage {
+                            selectedImage
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 150)
+                        
+                        
+                    } else {
+                        Image(systemName: "plus.circle.fill")
+                            .font(.system(size: 60))
+                            .foregroundColor(.blue)
 
-                Text("Tap to Select Image")
-                    .font(.title3)
+                        Text("Tap to Select Image")
+                            .font(.title3)
+                            .foregroundColor(Color.black)
 
-                Text("Choose from your photo library")
-                    .foregroundColor(.gray)
+                        Text("Choose from your photo library")
+                            .foregroundColor(.gray)
+                    }
+                }
+                .frame(maxWidth: .infinity)
+                .frame(height: 180)
+                .background(Color.blue.opacity(0.1))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(Color.blue, lineWidth: 4)
+                )
+                .cornerRadius(12)
             }
-            .frame(maxWidth: .infinity)
-            .frame(height: 180)
-            .background(Color.blue.opacity(0.1))
-            .overlay(
-                RoundedRectangle(cornerRadius: 12)
-                    .stroke(Color.blue, lineWidth: 3)
-            )
-            .cornerRadius(12)
+            .onChange(of: selectedItem) { _, newItem in
+                Task {
+                    guard let newItem else { return }
+
+                    if let data = try? await newItem.loadTransferable(type: Data.self),
+                        let uiImage = UIImage(data: data) {
+                        selectedImage = Image(uiImage: uiImage)
+                    }
+                }
+            }
 
             Button(action: {
                 print("Scan Image tapped")

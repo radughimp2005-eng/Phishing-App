@@ -18,7 +18,7 @@ struct ScanHeaderView: View {
             tabButton(title: "Image", tab: .image)
         }
         .frame(height: 44)
-        .background(Color.blue)
+        .background(Color.darkBlue)
         .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 
