@@ -43,7 +43,7 @@ struct HomePage: View {
                                         .fill(Color.lightBlue)
                                         .frame(width: 70, height: 53)
                                         .overlay(
-                                            Image("scan URL")
+                                            Image(systemName: "link")
                                                 .resizable()
                                                 .frame(width: 44, height: 44)
                                                 .padding(12)
@@ -185,6 +185,7 @@ struct HomePage: View {
         }
         .frame(maxHeight: .infinity, alignment: .top)
         SafetyTipsView()
+
         NavBarView()
     }
 }
