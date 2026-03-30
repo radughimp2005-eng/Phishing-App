@@ -36,7 +36,7 @@ struct HomePage: View {
                     .padding(.leading, 20) // only left padding
                 HStack (spacing:20) {
                         NavigationLink(
-                            destination: ScanView(),
+                            destination: ScanView(initialTab: .url),
                             label: {
                                 VStack (spacing: 15) {
                                     RoundedRectangle (cornerRadius: 10)
@@ -61,7 +61,7 @@ struct HomePage: View {
                             }
                         )
                     NavigationLink(
-                        destination: ScanView(),
+                        destination: ScanView(initialTab: .qr),
                         label: {
                             VStack (spacing: 15) {
                                 RoundedRectangle (cornerRadius: 10)
@@ -87,7 +87,7 @@ struct HomePage: View {
                     )
                     
                     NavigationLink(
-                        destination: ScanView(),
+                        destination: ScanView(initialTab: .image),
                         label: {
                             VStack (spacing: 15) {
                                 RoundedRectangle (cornerRadius: 10)

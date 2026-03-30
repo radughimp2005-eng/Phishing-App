@@ -8,7 +8,11 @@ enum ScanTab {
 }
 
 struct ScanView: View {
-    @State private var selectedTab: ScanTab = .url
+    @State private var selectedTab: ScanTab
+
+        init(initialTab: ScanTab = .url) {
+            _selectedTab = State(initialValue: initialTab)
+        }
 
     var body: some View {
         ScrollView {
@@ -41,4 +45,4 @@ struct ScanView: View {
             .padding(.top)
         }
     }
-        }
+}
