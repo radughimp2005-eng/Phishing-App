@@ -44,6 +44,7 @@ struct ScanTextView: View {
 
             Button(action: {
                 print("Scan Text tapped")
+                print($suspiciousText)
             }) {
                 Label("Scan Text", systemImage: "magnifyingglass")
                     .fontWeight(.bold)

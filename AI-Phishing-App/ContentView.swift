@@ -7,17 +7,16 @@ enum AppTab {
 
 struct ContentView: View {
     @State private var selectedTab: AppTab = .home
+    @State private var selectedScanTab: ScanTab = .url
 
     var body: some View {
         VStack(spacing: 0) {
             Group {
                 switch selectedTab {
                 case .home:
-                    NavigationStack {
-                        HomePage()
-                    }
+                    HomePage(selectedTab: $selectedTab, selectedScanTab: $selectedScanTab)
                 case .scan:
-                    ScanView()
+                    ScanView(selectedTab: $selectedScanTab)
                 }
             }
 

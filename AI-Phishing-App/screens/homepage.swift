@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomePage: View {
+    @Binding var selectedTab: AppTab
+    @Binding var selectedScanTab: ScanTab
     
     var body: some View {
         VStack () {
@@ -34,84 +36,89 @@ struct HomePage: View {
                     .fontWeight(.bold)
                     .frame(maxWidth: .infinity, alignment: .leading) // aligns text to leading
                     .padding(.leading, 20) // only left padding
-                HStack (spacing:20) {
-                        NavigationLink(
-                            destination: ScanView(initialTab: .url),
-                            label: {
-                                VStack (spacing: 15) {
-                                    RoundedRectangle (cornerRadius: 10)
-                                        .fill(Color.lightBlue)
-                                        .frame(width: 70, height: 53)
-                                        .overlay(
-                                            Image(systemName: "link")
-                                                .resizable()
-                                                .frame(width: 44, height: 44)
-                                                .padding(12)
-                                        )
-                                    
-                                    Text("Scan URL")
-                                        .fontWeight(.semibold)
-                                        .font(.system(size: 12))
-                                        .foregroundColor(.white)
+                HStack(spacing: 20) {
+                                Button(action: {
+                                    selectedScanTab = .url
+                                    selectedTab = .scan
+                                }) {
+                                    VStack(spacing: 15) {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .fill(Color.lightBlue)
+                                            .frame(width: 70, height: 53)
+                                            .overlay(
+                                                Image(systemName: "link")
+                                                    .resizable()
+                                                    .frame(width: 44, height: 44)
+                                                    .padding(12)
+                                                    .foregroundColor(Color.cyan)
+                                            )
+
+                                        Text("Scan URL")
+                                            .fontWeight(.semibold)
+                                            .font(.system(size: 12))
+                                            .foregroundColor(.white)
+                                    }
+                                    .padding(18)
+                                    .background(Color.darkBlue)
+                                    .cornerRadius(10)
+                                    .frame(width: 106, height: 106)
                                 }
-                                .padding(18)
-                                .background(Color.darkBlue)
-                                .cornerRadius(10)
-                                .frame(width: 106, height: 106)
+                                .buttonStyle(.plain)
+
+                                Button(action: {
+                                    selectedScanTab = .qr
+                                    selectedTab = .scan
+                                }) {
+                                    VStack(spacing: 15) {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .fill(Color.lightBlue)
+                                            .frame(width: 70, height: 53)
+                                            .overlay(
+                                                Image("scan QR")
+                                                    .resizable()
+                                                    .frame(width: 44, height: 44)
+                                                    .padding(12)
+                                            )
+
+                                        Text("Scan QR")
+                                            .fontWeight(.semibold)
+                                            .font(.system(size: 12))
+                                            .foregroundColor(.white)
+                                    }
+                                    .padding(18)
+                                    .background(Color.darkBlue)
+                                    .cornerRadius(10)
+                                    .frame(width: 106, height: 106)
+                                }
+                                .buttonStyle(.plain)
+
+                                Button(action: {
+                                    selectedScanTab = .image
+                                    selectedTab = .scan
+                                }) {
+                                    VStack(spacing: 15) {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .fill(Color.lightBlue)
+                                            .frame(width: 70, height: 53)
+                                            .overlay(
+                                                Image("scan image")
+                                                    .resizable()
+                                                    .frame(width: 44, height: 44)
+                                                    .padding(12)
+                                            )
+
+                                        Text("Scan image")
+                                            .fontWeight(.semibold)
+                                            .font(.system(size: 12))
+                                            .foregroundColor(.white)
+                                    }
+                                    .padding(18)
+                                    .background(Color.darkBlue)
+                                    .cornerRadius(10)
+                                    .frame(width: 110, height: 106)
+                                }
+                                .buttonStyle(.plain)
                             }
-                        )
-                    NavigationLink(
-                        destination: ScanView(initialTab: .qr),
-                        label: {
-                            VStack (spacing: 15) {
-                                RoundedRectangle (cornerRadius: 10)
-                                    .fill(Color.lightBlue)
-                                    .frame(width: 70, height: 53)
-                                    .overlay(
-                                        Image("scan QR")
-                                            .resizable()
-                                            .frame(width: 44, height: 44)
-                                            .padding(12)
-                                    )
-                                
-                                Text("Scan QR")
-                                    .fontWeight(.semibold)
-                                    .font(.system(size: 12))
-                                    .foregroundColor(.white)
-                            }
-                            .padding(18)
-                            .background(Color.darkBlue)
-                            .cornerRadius(10)
-                            .frame(width: 106, height: 106)
-                        }
-                    )
-                    
-                    NavigationLink(
-                        destination: ScanView(initialTab: .image),
-                        label: {
-                            VStack (spacing: 15) {
-                                RoundedRectangle (cornerRadius: 10)
-                                    .fill(Color.lightBlue)
-                                    .frame(width: 70, height: 53)
-                                    .overlay(
-                                        Image("scan image")
-                                            .resizable()
-                                            .frame(width: 44, height: 44)
-                                            .padding(12)
-                                    )
-                                
-                                Text("Scan image")
-                                    .fontWeight(.semibold)
-                                    .font(.system(size: 12))
-                                    .foregroundColor(.white)
-                            }
-                            .padding(18)
-                            .background(Color.darkBlue)
-                            .cornerRadius(10)
-                            .frame(width: 110, height: 106)
-                        }
-                    )
-                }
             }
         }
         VStack {

@@ -8,11 +8,7 @@ enum ScanTab {
 }
 
 struct ScanView: View {
-    @State private var selectedTab: ScanTab
-
-        init(initialTab: ScanTab = .url) {
-            _selectedTab = State(initialValue: initialTab)
-        }
+    @Binding var selectedTab: ScanTab
 
     var body: some View {
         ScrollView {
@@ -24,7 +20,6 @@ struct ScanView: View {
 
                 ScanHeaderView(selectedTab: $selectedTab)
                     .padding(.horizontal)
-                    .font(.system(size: 21))
 
                 Group {
                     switch selectedTab {
@@ -39,8 +34,6 @@ struct ScanView: View {
                     }
                 }
                 .padding(.horizontal)
-
-                Spacer()
             }
             .padding(.top)
         }
