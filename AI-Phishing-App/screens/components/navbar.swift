@@ -8,33 +8,39 @@
 import SwiftUI
 
 struct NavBarView: View {
+    @Binding var selectedTab: AppTab
+    
     var body: some View {
-        HStack (spacing: 40) {
-            NavigationLink(
-                destination: HomePage(),
-                label: {
-                    VStack (spacing: 4) {
-                        Image(systemName: "house.fill")
-                            .font(.system(size: 30))
-                            .foregroundColor(.cyan)
-                        Text("Home")
-                            .foregroundColor(.cyan)
-                    }
+        HStack (spacing: 35) {
+            Button(action: {
+                selectedTab = .home
+                print("Home button clicked from navbar")
+            }) {
+                VStack {
+                    Image(systemName: "house.fill")
+                        .font(.system(size: 28))
+                        .foregroundColor(selectedTab == .home ? .cyan : .black)
+
+                    Text("Home")
+                        .foregroundColor(selectedTab == .home ? .cyan : .black)
                 }
-            )
-            
-            NavigationLink(
-                destination: ScanView(),
-                label: {
-                    VStack (spacing: 7) {
-                        Image(systemName: "qrcode.viewfinder")
-                            .font(.system(size: 30))
-                            .foregroundColor(.black)
-                        Text("Scan")
-                            .foregroundColor(.black)
-                    }
+            }
+            .buttonStyle(.plain)
+
+            Button(action: {
+                selectedTab = .scan
+                print("Scan icon clicked from navbar")
+            }) {
+                VStack {
+                    Image(systemName: "qrcode.viewfinder")
+                        .font(.system(size: 28))
+                        .foregroundColor(selectedTab == .scan ? .cyan : .black)
+
+                    Text("Scan")
+                        .foregroundColor(selectedTab == .scan ? .cyan : .black)
                 }
-            )
+            }
+            .buttonStyle(.plain)
             
             VStack (spacing: 3) {
                 Image(systemName: "clock.arrow.trianglehead.counterclockwise.rotate.90")

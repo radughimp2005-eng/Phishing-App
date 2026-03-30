@@ -39,7 +39,6 @@ struct ScanView: View {
                 Spacer()
             }
             .padding(.top)
-            NavBarView()
         }
     }
         }

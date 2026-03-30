@@ -185,8 +185,6 @@ struct HomePage: View {
         }
         .frame(maxHeight: .infinity, alignment: .top)
         SafetyTipsView()
-
-        NavBarView()
     }
 }
     
